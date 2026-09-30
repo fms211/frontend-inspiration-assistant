@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="520" viewBox="0 0 1260 520" role="img" aria-labelledby="title desc">
+  <title id="title">Frontend Inspiration Assistant · Agent Skills, MCP and CLI</title>
+  <desc id="desc">One portable frontend research and audit core, accessed through three interfaces across compatible agent tools.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#080d19"/><stop offset="1" stop-color="#15213b"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#34517c" stop-opacity=".38"/><stop offset="1" stop-color="#34517c" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#9eb4d2" stroke-opacity=".04"/></pattern>
+  </defs>
+  <rect x="1" y="1" width="1258" height="518" rx="28" fill="url(#bg)" stroke="#2b3a52" stroke-width="2"/>
+  <rect x="2" y="2" width="1256" height="516" rx="28" fill="url(#grid)"/>
+  <ellipse cx="1050" cy="230" rx="350" ry="330" fill="url(#glow)"/>
+  <g font-family="Inter, Segoe UI, Arial, Microsoft YaHei, sans-serif">
+    <rect x="65" y="54" width="265" height="34" rx="17" fill="#20334d"/>
+    <circle cx="85" cy="71" r="4" fill="#f5aa54"/>
+    <text x="101" y="76" fill="#c4d1e6" font-size="12" letter-spacing="2">AGENT SKILLS · MCP · CLI</text>
+    <text x="65" y="170" fill="#f5f7fb" font-size="63" font-weight="750" letter-spacing="-2">Frontend</text>
+    <text x="65" y="245" fill="#f5aa54" font-size="63" font-weight="750" letter-spacing="-2">Inspiration</text>
+    <text x="68" y="292" fill="#dce4f2" font-size="27">前端灵感与审美实施助手</text>
+    <text x="68" y="337" fill="#a5b6cd" font-size="18">One workflow. Across your agent tools.</text>
+    <path d="M68 383H555" stroke="#344259"/>
+    <text x="68" y="425" fill="#f5f7fb" font-size="23" font-weight="700">20+</text><text x="121" y="424" fill="#97acc8" font-size="11" letter-spacing="1.5">CANDIDATES</text>
+    <text x="265" y="425" fill="#f5f7fb" font-size="23" font-weight="700">4</text><text x="289" y="424" fill="#97acc8" font-size="11" letter-spacing="1.5">SOURCES</text>
+    <text x="412" y="425" fill="#f5f7fb" font-size="23" font-weight="700">22</text><text x="446" y="424" fill="#97acc8" font-size="11" letter-spacing="1.5">AUDIT STACKS</text>
+    <g transform="translate(655 87)">
+      <rect x="8" y="14" width="524" height="335" rx="23" fill="#040911" opacity=".45"/>
+      <rect width="524" height="335" rx="23" fill="#0b1427" stroke="#3c506d" stroke-width="2"/>
+      <circle cx="25" cy="26" r="4" fill="#f5aa54"/><circle cx="42" cy="26" r="4" fill="#739bd1"/><circle cx="59" cy="26" r="4" fill="#5f7493"/>
+      <text x="99" y="31" fill="#b2c3dc" font-size="12" letter-spacing="1.2">ONE CORE · THREE ENTRANCES</text>
+      <path d="M0 50H524" stroke="#263852"/>
+      <rect x="25" y="79" width="143" height="62" rx="12" fill="#25354d" stroke="#506d92"/>
+      <rect x="191" y="79" width="143" height="62" rx="12" fill="#373125" stroke="#ac8655"/>
+      <rect x="357" y="79" width="143" height="62" rx="12" fill="#282b45" stroke="#6c709e"/>
+      <text x="49" y="117" fill="#e1eafb" font-size="19" font-weight="650">Agent Skills</text>
+      <text x="218" y="117" fill="#f8d3a0" font-size="19" font-weight="650">MCP tools</text>
+      <text x="411" y="117" fill="#e0dcfa" font-size="19" font-weight="650">CLI</text>
+      <path d="M96 145V167H262M429 145V167H262M262 145V184" fill="none" stroke="#7390b5" stroke-width="2"/>
+      <path d="M257 179l5 6 5-6" fill="none" stroke="#f5aa54" stroke-width="2"/>
+      <rect x="25" y="197" width="475" height="65" rx="12" fill="#172840" stroke="#40587b"/>
+      <text x="67" y="225" fill="#eef3fb" font-size="17" font-weight="600">Observe · Compare · Plan · Audit</text>
+      <text x="101" y="247" fill="#93aacc" font-size="12">Project context + real browser evidence</text>
+      <text x="57" y="302" fill="#b8c8df" font-size="16">Codex · Claude Code · Cursor · MCP hosts</text>
+    </g>
+    <text x="681" y="461" fill="#94a9c6" font-size="14">Discover by task. Confirm before implementation.</text>
+  </g>
+</svg>

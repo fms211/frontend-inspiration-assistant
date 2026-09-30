@@ -1,6 +1,29 @@
 # 前端灵感与审美实施助手
 
-私有、跨项目复用的Codex技能插件，版本0.1.0。运行需要Codex桌面端的宿主浏览器；实施和视觉审查复用已安装的frontend-design与impeccable。Python3仅用于本地规则搜索、报告校验和打包，不增加业务HTTP API。
+跨项目、跨智能体复用的前端灵感插件，版本0.2.0。提供标准Agent Skill、可选MCP stdio工具和Python CLI。浏览由调用智能体真实可用的浏览器执行；frontend-design与impeccable可用时复用，缺失项如实记录。报告与规则CLI只需Python3标准库，MCP模式按requirements-mcp.txt安装官方SDK，不增加业务HTTP API。
+
+[English](./README.en.md) · [中英文完整接入指南](https://github.com/fms211/frontend-inspiration-assistant/blob/HEAD/docs/CROSS-AGENT.md)
+
+## 跨智能体接入
+
+解压后的根目录含通用`SKILL.md`，可作为完整技能安装。以下命令从本文件所在目录执行，示例路径替换为自己的现有项目绝对路径；选择对应客户端的一条即可：
+
+```bash
+python scripts/install_skill.py --project "D:/Projects/my-site" --client claude
+python scripts/install_skill.py --project "D:/Projects/my-site" --client cursor
+python scripts/install_skill.py --project "D:/Projects/my-site" --client codex
+```
+
+MCP模式在当前选定的Python环境安装依赖，再生成客户端配置：
+
+```bash
+python -m pip install -r requirements-mcp.txt
+python scripts/client_config.py --project "D:/Projects/my-site" --client cursor --output cursor.mcp.generated.json
+```
+
+将生成的服务器条目合并到客户端项目配置中，Claude Code可用`--client claude`，Codex可用`--client codex`生成TOML。可选`--with-browser`附加固定版本Playwright MCP配置，需要Node.js 18+和可用浏览器。安装器和配置生成器保留已有文件，不自动修改全局设置。
+
+MCP提供10个工具、5个资源和1个prompt；服务器由客户端通过stdio启动。没有宿主浏览器时不虚构实测，没有impeccable时明确列出覆盖限制。模型是否自动选择由客户端决定；32项测试证明运行包与协议，具体客户端UI/模型调用仍待实测。
 
 ## 使用
 

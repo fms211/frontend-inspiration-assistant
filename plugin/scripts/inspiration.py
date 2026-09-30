@@ -13,6 +13,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = "0.2.0"
 PIN = "09170eec67eefd46a7ae85de61b40c194020f997"
 SOURCES = ("https://reactbits.dev/", "https://github.com/DavidHDev/react-bits", "https://hepengwei.cn/", "https://ui.aceternity.com/")
 DIRECTIONS = {"布局", "文字排版", "组件交互", "背景", "滚动动效", "动画", "3D"}
@@ -272,7 +273,7 @@ def package_errors(root=ROOT):
     errors = []
     try:
         manifest = read_json(root / "plugin.json")
-        if manifest.get("name") != "frontend-inspiration-assistant" or manifest.get("version") != "0.1.0":
+        if manifest.get("name") != "frontend-inspiration-assistant" or manifest.get("version") != VERSION:
             errors.append("plugin identity/version mismatch")
         if any(k in manifest for k in ("skills", "apps", "mcpServers", "interface")):
             errors.append("non-portable top-level manifest field")
@@ -370,6 +371,14 @@ def safe_report_output(data, output):
         raise ValueError("report output must be inside current project's 设计灵感 directory")
 
 
+def audit_markdown(data):
+    lines = [f"# {data['target']} · {data['stage']}审计", "", "证据级别：rule规则建议 / code代码检查 / browser浏览器实测。", "", f"覆盖：{md(data['coverage'])}", "", "| 位置 | 问题 | 优先级 | 证据与技能 | 参数建议 | 验证与复测 |", "|---|---|---|---|---|---|"]
+    for finding in data["findings"]:
+        lines.append("| " + " | ".join(md(v) for v in (finding["location"], finding["issue"], finding["priority"], f"{finding['evidence_level']} / {finding['skill']} / {finding['evidence']}", finding["parameters"], f"{finding['verification']} / {finding['retest']}")) + " |")
+    lines += ["", "验证边界：" + data["limitations"], ""]
+    return "\n".join(lines)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -421,11 +430,7 @@ def main(argv=None):
             data = read_json(args.input)
             errors = audit_errors(data)
             if not errors:
-                lines = [f"# {data['target']} · {data['stage']}审计", "", "证据级别：rule规则建议 / code代码检查 / browser浏览器实测。", "", f"覆盖：{md(data['coverage'])}", "", "| 位置 | 问题 | 优先级 | 证据与技能 | 参数建议 | 验证与复测 |", "|---|---|---|---|---|---|"]
-                for f in data["findings"]:
-                    lines.append("| " + " | ".join(md(v) for v in (f["location"], f["issue"], f["priority"], f"{f['evidence_level']} / {f['skill']} / {f['evidence']}", f["parameters"], f"{f['verification']} / {f['retest']}")) + " |")
-                lines += ["", "验证边界：" + data["limitations"], ""]
-                write_new(args.output, "\n".join(lines))
+                write_new(args.output, audit_markdown(data))
             emit({"ok": not errors, "errors": errors})
             return 2 if errors else 0
         elif args.command == "audit-rules":
@@ -445,12 +450,13 @@ def main(argv=None):
                 if destination.is_relative_to(ROOT) or destination.exists():
                     raise ValueError("archive must be new and outside plugin root")
                 destination.parent.mkdir(parents=True, exist_ok=True)
+                package_name = read_json(ROOT / "plugin.json")["name"]
                 with zipfile.ZipFile(destination, "x", zipfile.ZIP_DEFLATED) as archive:
                     for path in sorted(ROOT.rglob("*")):
                         if path.is_symlink():
                             raise ValueError(f"symlinks are not portable: {path}")
                         if path.is_file() and not set(path.relative_to(ROOT).parts) & {"__pycache__", ".git", "node_modules"} and path.suffix != ".pyc":
-                            archive.write(path, f"{ROOT.name}/{path.relative_to(ROOT).as_posix()}")
+                            archive.write(path, f"{package_name}/{path.relative_to(ROOT).as_posix()}")
                 with zipfile.ZipFile(destination) as archive:
                     if archive.testzip() or len({n.split('/')[0] for n in archive.namelist()}) != 1:
                         raise ValueError("archive validation failed")

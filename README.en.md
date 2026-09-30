@@ -1,11 +1,11 @@
 <p align="center"><a href="./README.md">简体中文</a> · <strong>English</strong></p>
 
-<p align="center"><img src="./docs/assets/hero.svg" alt="Frontend Inspiration Assistant · 前端灵感与审美实施助手" width="100%"></p>
+<p align="center"><img src="./docs/assets/hero-v0.2.svg" alt="Frontend Inspiration Assistant · 前端灵感与审美实施助手" width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/version-0.1.0-e89840?style=flat-square" alt="Version 0.1.0"></a>
-  <img src="https://img.shields.io/badge/Codex-Desktop-5888d8?style=flat-square" alt="Codex Desktop">
-  <img src="https://img.shields.io/badge/Local_tests-17_passed-56b6c2?style=flat-square" alt="17 local tests passed">
+  <a href="https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/version-0.2.0-e89840?style=flat-square" alt="Version 0.2.0"></a>
+  <img src="https://img.shields.io/badge/Agent_Skills-MCP_%2B_CLI-5888d8?style=flat-square" alt="Agent Skills, MCP and CLI">
+  <img src="https://img.shields.io/badge/Local_tests-32_passed-56b6c2?style=flat-square" alt="32 local tests passed">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-9078d0?style=flat-square" alt="MIT license"></a>
 </p>
 
@@ -18,7 +18,7 @@
 
 ## What it does
 
-A reusable frontend research and implementation workflow for Codex Desktop. It reads the project's audience, page purpose, design rules, and technology stack, then opens categories, clicks demos, and observes relevant interactions. Candidates are ranked **high → medium → low relevance**, with fit, adaptations, and implementation costs explained.
+A reusable frontend research and implementation workflow for agents supporting Agent Skills or MCP. It reads the project's audience, page purpose, design rules, and technology stack, then opens categories, clicks demos, and observes relevant interactions. Candidates are ranked **high → medium → low relevance**, with fit, adaptations, and implementation costs explained.
 
 | Capability | Output |
 |---|---|
@@ -26,7 +26,8 @@ A reusable frontend research and implementation workflow for Codex Desktop. It r
 | **20+ distinct candidates** | Merge website/source duplicates and JS, TS, CSS, and Tailwind variants |
 | **Complete Markdown reports** | Candidate table, real Top5 screenshots, Top3 comparison, combinations, dependencies, and licensing |
 | **Element-level plans** | Position, copy, typography, layout, tokens, motion, state transitions, interruption, and rollback |
-| **Complementary audits** | Bundled UI UX Pro Max rules and host impeccable context review, with rule/code/browser evidence kept distinct |
+| **Complementary audits** | Bundled UI UX Pro Max, plus impeccable when the host provides it, with rule/code/browser evidence kept distinct |
+| **Cross-agent entry points** | A portable Agent Skill, ten MCP tools, CLI and client configuration generator |
 
 ### Sources checked each round
 
@@ -71,11 +72,30 @@ These screenshots were captured while visiting the source websites on 2026-09-30
 
 ## Quick start
 
-The source and release archive are public and can be used in your own Codex Desktop setup. No additional business HTTP API or service account is required by this plugin. The creator's private instance passed installation, skill-enablement, and synchronization checks.
+Version 0.2.0 provides **Agent Skills + MCP + CLI** for Claude Code, Cursor, Codex and compatible agent tools. Once the skill is loaded or MCP connected, the host can select it by task. See the [cross-agent guide](./docs/CROSS-AGENT.en.md) for setup, capabilities and tested limits.
 
-Use Codex Desktop with the host `browser:control-in-app-browser`, `frontend-design`, and `impeccable` available. Local report and audit tools use Python 3.10+ and its standard library. The packaged default language is Chinese; explicit user language requirements take precedence.
+| Entry | Purpose |
+|---|---|
+| [Agent Skill](./plugin/SKILL.md) | Discover the frontend/UI/motion workflow with a complete, self-contained runtime |
+| [MCP stdio](./plugin/scripts/mcp_server.py) | Ten tools, five resources and one starting prompt for agents to discover and call |
+| [CLI](./plugin/scripts/inspiration.py) | Rule search, evidence validation, reports, proposals and packaging |
 
-### Install from source
+Report tools use Python 3.10+ and its standard library. Optional MCP uses a pinned official SDK. Browse with actual host tools, and reuse frontend-design/impeccable when available; disclose missing capabilities. User language requirements override the packaged Chinese default.
+
+### Install the Agent Skill
+
+Clone, replace the example with your existing project's absolute path, and choose one client command:
+
+```bash
+git clone https://github.com/fms211/frontend-inspiration-assistant.git
+cd frontend-inspiration-assistant
+python plugin/scripts/install_skill.py --project "/absolute/path/to/my-site" --client claude
+python plugin/scripts/install_skill.py --project "/absolute/path/to/my-site" --client cursor
+```
+
+The installer preserves existing skills and global settings. MCP, optional browser tools and other client settings are covered in the [setup guide](./docs/CROSS-AGENT.en.md).
+
+### Codex plugin mode
 
 Clone this public repository and use Codex's supported local marketplace flow:
 
@@ -86,7 +106,7 @@ codex plugin marketplace add .
 codex plugin add frontend-inspiration-assistant@frontend-inspiration-assistant-source
 ```
 
-The source marketplace is defined in [.agents/plugins/marketplace.json](./.agents/plugins/marketplace.json), and the runtime lives in [plugin/](./plugin/). An already enabled personal instance can be used directly; source installation supports independent maintenance. Download the packaged 0.1.0 archive from the [release](https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.1.0).
+The source marketplace is defined in [.agents/plugins/marketplace.json](./.agents/plugins/marketplace.json), and the runtime lives in [plugin/](./plugin/). An enabled 0.1 private instance keeps its original workflow; install this source or portable bundle for 0.2 features. Download the portable 0.2.0 archive from the [release](https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.2.0).
 
 ### Example requests
 
@@ -119,6 +139,7 @@ Use concrete values or explicit project tokens. Keep **observed source values** 
 ## Validation and reproduction
 
 ```bash
+python -m pip install -r plugin/requirements-mcp.txt
 python -m unittest discover -s plugin/tests -v
 python plugin/scripts/inspiration.py package-check
 python plugin/skills/ui-ux-pro-max/scripts/validate_data.py
@@ -129,13 +150,14 @@ Use `python` on Windows; substitute `python3` on macOS/Linux if needed. More com
 
 | Completed check | Result |
 |---|---|
-| 17 contract tests | Deduplication, 19-result failure, ordering, screenshots, source failure, missing data, and exit0 error handling passed |
+| 17 original contract tests | Deduplication, 19-result failure, ordering, screenshots, source failure, missing data, and exit0 error handling passed |
+| 15 cross-agent tests | Nine portability tests and six actual MCP subprocess tests; modern/legacy handshakes and all tools/resources/prompt passed |
 | Official data integrity | 12 domains, 22 stack datasets, and ui-reasoning.csv validated; 94 upstream file hashes recorded |
 | One actual research round | Four entrances, 22 unique candidates, real Top5 screenshots, and a Markdown report |
 | Selection-to-plan handoff | A clearly marked test fixture verified fields and candidate IDs without implying user selection |
-| Installation and discovery | Private plugin installed; three skills enabled; synchronized runtime integrity and rule-search smoke check passed |
+| Installation and discovery | Original 0.1 private plugin installed; 0.2 directory installation and JSON/TOML validated; specific client UI and automatic selection untested |
 
-Post-implementation desktop, mobile, keyboard, reduced-motion, and performance checks run after user selection, proposal confirmation, and implementation. Vue/HTML cases are compatibility projections rather than additional browser rounds. See the [validation record](./docs/VALIDATION.md).
+Post-implementation desktop, mobile, keyboard, reduced-motion, and performance checks run after user selection, proposal confirmation, and implementation. Vue/HTML cases are compatibility projections rather than additional browser rounds. Without MCP dependencies, six protocol tests skip; that is not a full 32-test pass. See the [validation record](./docs/VALIDATION.md) and [cross-agent evidence](./docs/CROSS-AGENT.en.md).
 
 ## Repository structure
 
@@ -145,12 +167,13 @@ frontend-inspiration-assistant/
 ├── .agents/plugins/              # Installable source marketplace
 ├── docs/                         # Real previews, example, and validation
 └── plugin/                       # Portable runtime
+    ├── SKILL.md                  # Portable Agent Skill
     ├── plugin.json               # Standard manifest
     ├── .codex-plugin/            # Platform-generated Codex compatibility manifest
     ├── skills/                   # Three entry points
-    ├── scripts/                  # Deduplication, reporting, audits, packaging
+    ├── scripts/                  # MCP, installation, configs, reports, audits
     ├── templates/                # Candidate, proposal, and audit templates
-    └── tests/                    # 17 contract tests
+    └── tests/                    # 32 contract, portability and MCP tests
 ```
 
 ## License and attribution

@@ -1,11 +1,11 @@
 <p align="center"><strong>简体中文</strong> · <a href="./README.en.md">English</a></p>
 
-<p align="center"><img src="./docs/assets/hero.svg" alt="前端灵感与审美实施助手 · Frontend Inspiration Assistant" width="100%"></p>
+<p align="center"><img src="./docs/assets/hero-v0.2.svg" alt="前端灵感与审美实施助手 · Frontend Inspiration Assistant" width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/version-0.1.0-e89840?style=flat-square" alt="版本 0.1.0"></a>
-  <img src="https://img.shields.io/badge/Codex-Desktop-5888d8?style=flat-square" alt="Codex 桌面端">
-  <img src="https://img.shields.io/badge/Local_tests-17_passed-56b6c2?style=flat-square" alt="本地17项测试通过">
+  <a href="https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/version-0.2.0-e89840?style=flat-square" alt="版本 0.2.0"></a>
+  <img src="https://img.shields.io/badge/Agent_Skills-MCP_%2B_CLI-5888d8?style=flat-square" alt="Agent Skills、MCP与CLI">
+  <img src="https://img.shields.io/badge/Local_tests-32_passed-56b6c2?style=flat-square" alt="本地32项测试通过">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-9078d0?style=flat-square" alt="MIT"></a>
 </p>
 
@@ -18,7 +18,7 @@
 
 ## 它能帮你做什么
 
-为 Codex 桌面端提供跨项目复用的前端灵感与实施工作流。先理解项目的用户、页面用途、设计规范与技术栈，再自主打开分类、点击演示和观察交互；推荐结果按**高 → 中 → 低相关度**排序，解释适配理由与代价。
+为支持 Agent Skills 或 MCP 的智能体提供跨项目复用的前端灵感与实施工作流。先理解项目的用户、页面用途、设计规范与技术栈，再自主打开分类、点击演示和观察交互；推荐结果按**高 → 中 → 低相关度**排序，解释适配理由与代价。
 
 | 能力 | 交付 |
 |---|---|
@@ -26,7 +26,8 @@
 | **20+有效候选** | 合并官网／源码及JS、TS、CSS、Tailwind变体，不重复凑数 |
 | **完整Markdown** | 候选表、Top5真实截图、前三条比较、组合方向和授权情况 |
 | **逐元素方案** | 位置、文案、字体、布局、token、动效参数、状态、中断与回退 |
-| **双重审计** | 内置UI UX Pro Max规则与宿主impeccable上下文审查；区分规则、代码和浏览器实测 |
+| **双重审计** | 内置UI UX Pro Max，宿主impeccable可用时参与；区分规则、代码和浏览器实测 |
+| **跨智能体调用** | 通用Agent Skill、10个MCP工具、CLI与客户端配置生成器 |
 
 ### 每轮检查的来源
 
@@ -71,11 +72,30 @@ flowchart LR
 
 ## 快速开始
 
-源码与Release安装包公开提供，可在自己的Codex桌面端使用。插件本身不需要额外业务API或新服务账号。创建者自己的私有实例已通过安装、启用与同步验收。
+0.2.0提供**Agent Skills + MCP + CLI**三个入口，可接入Claude Code、Cursor、Codex和兼容的智能体工具。加载技能或连接MCP后，宿主可按任务匹配调用。完整[跨智能体安装指南](./docs/CROSS-AGENT.md)说明配置、能力与实测边界。
 
-运行需要 Codex 桌面端，以及可用的宿主 `browser:control-in-app-browser`、`frontend-design` 和 `impeccable`。本地报告与审计脚本使用 Python 3.10+ 标准库。
+| 入口 | 用途 |
+|---|---|
+| [Agent Skill](./plugin/SKILL.md) | 按前端/UI/动效任务发现并读取工作流，完整脚本与数据随技能安装 |
+| [MCP stdio](./plugin/scripts/mcp_server.py) | 10个工具、5个资源和1个prompt，供智能体发现和调用 |
+| [CLI](./plugin/scripts/inspiration.py) | 命令行规则搜索、证据校验、报告、方案和打包 |
 
-### 从源码安装
+报告CLI只需Python 3.10+标准库；可选MCP入口使用固定官方SDK。浏览使用宿主真实工具，frontend-design与impeccable可用时复用；缺失时如实报告覆盖限制。
+
+### Agent Skill安装
+
+克隆后，把示例路径替换为当前已有项目的绝对路径，选择对应客户端的一条命令：
+
+```bash
+git clone https://github.com/fms211/frontend-inspiration-assistant.git
+cd frontend-inspiration-assistant
+python plugin/scripts/install_skill.py --project "D:/Projects/my-site" --client claude
+python plugin/scripts/install_skill.py --project "D:/Projects/my-site" --client cursor
+```
+
+安装器保留已有技能，不修改全局设置。MCP接入、可选浏览器及其他客户端配置见[接入指南](./docs/CROSS-AGENT.md)。
+
+### Codex插件模式
 
 克隆公开仓库，并通过Codex支持的本地市场安装：
 
@@ -86,7 +106,7 @@ codex plugin marketplace add .
 codex plugin add frontend-inspiration-assistant@frontend-inspiration-assistant-source
 ```
 
-源码市场清单在[.agents/plugins/marketplace.json](./.agents/plugins/marketplace.json)，运行包在[plugin/](./plugin/)。已有个人插件实例启用时可直接使用；源码安装便于独立维护。打包好的0.1.0安装包可从[Release下载](https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.1.0)。
+源码市场清单在[.agents/plugins/marketplace.json](./.agents/plugins/marketplace.json)，运行包在[plugin/](./plugin/)。已启用的0.1私有实例可继续使用原流程；0.2功能需要安装本版源码或通用包。打包好的0.2.0通用安装包可从[Release下载](https://github.com/fms211/frontend-inspiration-assistant/releases/tag/v0.2.0)。
 
 ### 直接这样说
 
@@ -119,6 +139,7 @@ codex plugin add frontend-inspiration-assistant@frontend-inspiration-assistant-s
 ## 验证与复现
 
 ```bash
+python -m pip install -r plugin/requirements-mcp.txt
 python -m unittest discover -s plugin/tests -v
 python plugin/scripts/inspiration.py package-check
 python plugin/skills/ui-ux-pro-max/scripts/validate_data.py
@@ -129,13 +150,14 @@ Windows可直接使用`python`；macOS/Linux按环境替换为`python3`。更多
 
 | 已完成 | 验收结果 |
 |---|---|
-| 17项契约测试 | 去重、19条不足、排序、截图、来源失败、数据缺失、exit0错误等分支通过 |
+| 17项原契约测试 | 去重、19条不足、排序、截图、来源失败、数据缺失、exit0错误等分支通过 |
+| 跨智能体新增15项测试 | 9项可移植性＋6项真实MCP进程测试；现代/legacy握手、全部工具、资源与prompt通过 |
 | 官方数据完整性 | 12类领域、22套栈数据、ui-reasoning.csv通过；94个原文件SHA256记录 |
 | 实际浏览一轮 | 四个入口、22个不同候选、Top5真实截图和Markdown报告 |
 | 选择到方案衔接 | test-fixture验证字段与候选编号，明确没有用户选择授权 |
-| 安装与发现 | 私有插件已安装，三个技能开关启用，宿主缓存完整性与规则搜索通过 |
+| 安装与发现 | 原0.1私有插件已安装；0.2四种目录安装和JSON/TOML验证通过，具体客户端UI与自动选用未测 |
 
-实施后桌面、移动端、键盘、减动效及性能实测，在用户选定并确认方案、完成实施后执行。Vue/HTML验收为兼容性投影，不是新增浏览轮次。详情见[验收记录](./docs/VALIDATION.md)。
+实施后桌面、移动端、键盘、减动效及性能实测，在用户选定并确认方案、完成实施后执行。Vue/HTML验收为兼容性投影，不是新增浏览轮次。未安装MCP依赖时6项协议测试会跳过，不能视为完整32项通过。详情见[验收记录](./docs/VALIDATION.md)及[跨智能体验收](./docs/CROSS-AGENT.md)。
 
 ## 仓库结构
 
@@ -145,12 +167,13 @@ frontend-inspiration-assistant/
 ├── .agents/plugins/              # 可安装的源码市场
 ├── docs/                         # 真实预览、案例与验收
 └── plugin/                       # 可移植运行包
+    ├── SKILL.md                  # 通用Agent Skill入口
     ├── plugin.json               # 标准插件清单
     ├── .codex-plugin/            # 平台生成的Codex兼容清单
     ├── skills/                   # 三个技能入口
-    ├── scripts/                  # 去重、报告、审计与打包
+    ├── scripts/                  # MCP、安装、配置、报告与审计
     ├── templates/                # 候选、方案与审计模板
-    └── tests/                    # 17项契约测试
+    └── tests/                    # 32项契约、可移植性与MCP测试
 ```
 
 ## 授权与来源

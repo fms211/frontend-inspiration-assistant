@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "frontend-inspiration-assistant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "结合当前项目自主浏览四个指定设计来源，输出至少20条去重候选、真实截图、Markdown报告与逐元素实施方案，并执行UI UX Pro Max和impeccable审计。",
   "author": {"name": "fms"},
   "extensions": {

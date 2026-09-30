@@ -14,7 +14,7 @@ description: "为当前网站项目自主浏览React Bits、其GitHub、hepengwe
 - 检索与流程：阅读 [工作流程](references/workflow.md) 和 [来源指南](references/sources.md)。
 - 元素方案：阅读 [实施方案](references/implementation.md)。
 - 审计：阅读 [双重审计](references/audit.md)，**打开本包相邻的 [UI UX Pro Max](../ui-ux-pro-max/SKILL.md)**，使用其完整数据副本，避免误调宿主同名旧副本。
-- 宿主能力：动态发现并阅读实际可用的 `browser:control-in-app-browser`、`frontend-design`、`impeccable`。按宿主浏览器技能控制浏览器，不自行启动另一个爬虫替代视觉观察。缺失时清楚报告限制，不能假称浏览实测。无需新增MCP、HTTP API或外部账号。
+- 宿主能力：按 [宿主适配](references/host-adapters.md) 动态发现真实可用的浏览器工具，以及可选的 `frontend-design`、`impeccable`。Codex提供浏览器技能时遵守该技能；其他宿主使用其浏览器或已配置的浏览器MCP。没有浏览器时清楚报告限制，不能假称浏览实测。MCP是可选通用调用入口，不需要业务HTTP API或新增模型账号。
 - 工具 CLI：`python <PLUGIN_ROOT>/scripts/inspiration.py --help`；Python3标准库，无额外依赖。浏览行为由宿主代理执行，CLI仅整理和校验已采集的证据。
 
 ## 每轮不可省略
@@ -26,6 +26,6 @@ description: "为当前网站项目自主浏览React Bits、其GitHub、hepengwe
 5. 保存到当前项目 `设计灵感/<日期时间>-<目标>/`。填写 `templates/candidates.json`，采集前五条真实截图，运行校验后生成完整Markdown；聊天展示完整表和前三条比较、组合建议。免费优先，付费公开演示明确标注，授权未知写未知。
 6. 报告后询问：“希望选择哪些编号？可以单选、多选、组合，或更换方向。”使用宿主提问工具（若可用），等待选择，不能代选。若未满20或截图缺失则标为未达标，继续能进行的检索并如实说明。
 7. 用户选择后按实施模板细化所有参数；明确区分观察值与拟实施值，先做方案审计，展示方案并等待确认。
-8. 确认后调用frontend-design实施，结合impeccable及内置UI UX Pro Max复查；以真实桌面、移动、键盘及减动效测试为验收。记录尚未验证项，不能用脚本通过冒充页面验收。
+8. 确认后由宿主智能体实施；frontend-design可用时复用，impeccable可用时参与复查，并执行内置UI UX Pro Max审计。缺失的技能如实列出。以真实桌面、移动、键盘及减动效测试为验收，不能用脚本通过冒充页面验收。
 
 详细证据、负面分支、CLI命令和报告规则见上述参考文档。

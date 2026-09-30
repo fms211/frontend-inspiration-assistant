@@ -1,0 +1,2 @@
+# Official SDK; supports current and earlier MCP protocol revisions.
+mcp==2.2.0

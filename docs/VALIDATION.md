@@ -1,4 +1,21 @@
-# 验收记录 / Validation
+# 0.2.0 跨智能体验证 / Cross-agent validation
+
+2026-09-30（Asia/Shanghai）：Windows、Python3.11.9、官方MCP SDK2.2.0。32项自动测试全部通过，无跳过。
+
+- 17项原契约、9项可移植性、6项实际stdio子进程测试。
+- 现代协议及legacy初始化、10工具成功/失败分支、5资源和1prompt实际调用。
+- 四种技能安装目录中完整运行包可直接执行；JSON/TOML解析、已有目录/文件保留及标准ZIP根目录验证。
+- 报告不足20条、项目路径越界、规则冒充实测等返回MCP错误；允许保存未达标诊断时仍不返回成功。
+- 方案保持awaiting-confirmation，工具没有网站修改入口；fixture选择不代表用户选择。
+- 官方UI UX Pro Max的94个原始文件未修改，固定提交与22套技术栈数据继续完整。
+
+**实测边界：** Claude Code、Cursor等应用UI和模型自动选择未实际运行；安装目录与标准协议通过不等于这些客户端已完成端到端验收。原22条网页浏览案例属于0.1实际研究，本次协议fixture不冒充新浏览。0.1私有Codex实例不由GitHub发布自动升级。实际页面修改后仍需桌面、移动、键盘、减动效及性能验证。
+
+English: all 32 tests passed with no skips, including six actual MCP subprocess tests; Client UI/model selection is untested, and protocol fixtures are not new browser evidence. Existing private installations do not auto-update from GitHub. See [setup and evidence](./CROSS-AGENT.en.md).
+
+---
+
+# 0.1.0 历史验收 / Historical validation
 
 日期 / Date: 2026-09-30 · Runtime: 0.1.0
 

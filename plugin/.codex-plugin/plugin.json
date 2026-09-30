@@ -17,7 +17,7 @@
     "composerIcon": "./assets/icon.svg"
   },
   "name": "frontend-inspiration-assistant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "\u7ed3\u5408\u5f53\u524d\u9879\u76ee\u81ea\u4e3b\u6d4f\u89c8\u56db\u4e2a\u6307\u5b9a\u8bbe\u8ba1\u6765\u6e90\uff0c\u8f93\u51fa\u81f3\u5c1120\u6761\u53bb\u91cd\u5019\u9009\u3001\u771f\u5b9e\u622a\u56fe\u3001Markdown\u62a5\u544a\u4e0e\u9010\u5143\u7d20\u5b9e\u65bd\u65b9\u6848\uff0c\u5e76\u6267\u884cUI UX Pro Max\u548cimpeccable\u5ba1\u8ba1\u3002",
   "author": {
     "name": "fms"
