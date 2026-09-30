@@ -41,15 +41,11 @@ A reusable frontend research and implementation workflow for Codex Desktop. It r
 
 ```mermaid
 flowchart LR
-    A[Understand project] --> B[Browse four entrances]
-    B --> C[20+ unique candidates]
-    C --> D[Markdown and screenshots]
-    D --> E[User selection]
-    E --> F[Element-level plan and audit]
-    F --> G{User confirms plan}
-    G -->|Confirm| H[Implement]
-    G -->|Revise| F
-    H --> I[Audit and browser verification]
+    A["Understand project<br/>Browse four entrances"] --> B["20+ unique candidates<br/>Markdown and screenshots"]
+    B --> C["User selection<br/>Element-level plan and audit"]
+    C --> D{Confirm plan}
+    D -->|Confirm| E["Implement<br/>Audit and browser verification"]
+    D -->|Revise| C
 ```
 
 **Selection leads to a proposal; confirming the concrete proposal authorizes implementation.** Each round is saved in the current project's `设计灵感/<timestamp>-<target>/` directory. Previous rounds are preserved.
