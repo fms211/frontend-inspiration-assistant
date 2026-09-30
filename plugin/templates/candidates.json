@@ -1,0 +1,28 @@
+{
+  "_instructions": "复制到当前项目设计灵感的新轮次目录，用真实浏览证据填写至少20条；不要把本模板当作实际结果。fit_scores的use/style/compatibility/performance各0..5；分数越高越贴合/越轻量。按高→中→低及这四项顺序降序排列。",
+  "project_root": "<当前项目绝对目录>",
+  "target": "<页面与改善目标>",
+  "context": "<产品/受众/页面性质/技术栈/风格/项目约束及来源>",
+  "generated_at": "<带时区ISO时间>",
+  "sources": [
+    {"entry": "https://reactbits.dev/", "status": "visited", "checked_at": "<时间>", "detail": "<实际访问与动作>"},
+    {"entry": "https://github.com/DavidHDev/react-bits", "status": "visited", "checked_at": "<时间>", "detail": "<对应源码和授权观察>"},
+    {"entry": "https://hepengwei.cn/", "status": "visited", "checked_at": "<时间>", "detail": "<实际hash路径与分类>"},
+    {"entry": "https://ui.aceternity.com/", "status": "visited", "checked_at": "<时间>", "detail": "<实际访问或失败原因>"}
+  ],
+  "candidates": [
+    {
+      "id": "01", "name": "<名称>", "family": "react-bits", "component": "<稳定名称，忽略语言/样式变体>",
+      "example": "", "source_url": "https://reactbits.dev/<本轮观察到的链接>", "source_links": [],
+      "directions": ["组件交互"], "relevance": "高", "target_ui": "<路由/区域/UI>",
+      "reason": "<为什么贴合>", "adaptation": "<必须怎样调整>", "cost": "<低/中/高与估计范围/性能代价>",
+      "dependencies": "<实际依赖及迁移限制>", "license": "<免费/付费/未知、许可证、授权链接与可借鉴范围>",
+      "fit_scores": {"use": 5, "style": 4, "compatibility": 4, "performance": 4},
+      "screenshot": "screenshots/<真实截图>.jpg",
+      "verification": {"status": "browser-tested", "checked_at": "<时间>", "actual_url": "<最终URL>", "interaction_observation": "<动作、前后变化、文档信息及未实测项>", "evidence": "evidence/<日志>.txt"}
+    }
+  ],
+  "top3_comparison": "<前三条同目标比较和更贴合的理由>",
+  "combinations": "<可组合的方向与互斥项>",
+  "limitations": "<失败、性能/键盘/移动/减动效未确认事项；没有则写无新增限制>"
+}

@@ -1,0 +1,6 @@
+{
+  "stage": "candidates", "target": "<目标>",
+  "coverage": {"视觉一致性": "<结果/未测>", "布局": "<结果/未测>", "交互反馈": "<结果/未测>", "可读性": "<结果/未测>", "可访问性": "<结果/未测>", "响应式": "<结果/未测>", "动效性能": "<结果/未测>"},
+  "findings": [{"location": "<路由/组件/可见名称/位置>", "issue": "<问题>", "priority": "P2", "evidence": "<实际文件/浏览日志/规则JSON及描述>", "evidence_level": "rule", "skill": "ui-ux-pro-max + impeccable", "parameters": "<具体建议值/token>", "verification": "proposed", "retest": "<操作步骤与期望>"}],
+  "limitations": "<没有实施则标待实施后审计，规则建议不代表现场通过>"
+}

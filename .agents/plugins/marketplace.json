@@ -1,0 +1,10 @@
+{
+  "name": "frontend-inspiration-assistant-source",
+  "interface": {"displayName": "Frontend Inspiration · Source"},
+  "plugins": [{
+    "name": "frontend-inspiration-assistant",
+    "source": {"source": "local", "path": "./plugin"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}

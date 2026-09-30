@@ -1,0 +1,13 @@
+{
+  "target": "<目标>", "selected_ids": ["01"], "selection_origin": "user", "selection_text": "<用户实际选择原话，测试用test-fixture并注明>",
+  "elements": [{
+    "candidate_ids": ["01"], "observed_original": "<实际观察/代码说明/未测参数分开描述>",
+    "location": {"route": "<路由>", "region": "<区域>", "parent_ui": "<父级UI>", "visible_name": "<可见名称>", "position": "<具体角落或相对位置>"},
+    "text": {"current": "<当前文案>", "proposed": "<拟用文案>", "font_family": "<具体字体/token>", "font_size": "<px/token>", "font_weight": "<数值/token>", "line_height": "<数值/token>", "letter_spacing": "<值/token>"},
+    "layout": {"width": "<值/token>", "height": "<值/token>", "gap": "<值/token>", "padding": "<值/token>", "alignment": "<对齐>", "hierarchy": "<主次>", "z_index": "<值/token>", "mobile": "<断点与具体变化>"},
+    "visual": {"colors": "<角色/token/数值>", "radius": "<值/token>", "border": "<宽度/样式/颜色>", "opacity": "<数值>", "shadow": "<偏移/扩展/颜色/none>"},
+    "motion": {"trigger": "<触发>", "start": "<起始属性>", "end": "<结束属性>", "duration_ms": 180, "delay_ms": 0, "easing": "<具体曲线>", "amplitude": "<位移/缩放>", "loop": false, "interruption": "<中断行为>", "reduced_motion": "<具体替代>"},
+    "implementation": {"files": ["<真实文件路径>"], "component": "<组件>", "dependencies": "<依赖/无新增>", "expected": "<效果>", "steps": ["<实施步骤>"], "acceptance": ["<桌面/移动/键盘/减动效操作及期望>"], "rollback": "<文件/token/开关回退>"}
+  }],
+  "audit_summary": "<UI UX Pro Max与impeccable方案审计结果及证据边界>"
+}

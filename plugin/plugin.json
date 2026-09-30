@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "frontend-inspiration-assistant",
+  "version": "0.1.0",
+  "description": "结合当前项目自主浏览四个指定设计来源，输出至少20条去重候选、真实截图、Markdown报告与逐元素实施方案，并执行UI UX Pro Max和impeccable审计。",
+  "author": {"name": "fms"},
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "前端灵感与审美实施助手",
+        "shortDescription": "浏览设计灵感，比较方案并审计实施",
+        "longDescription": "理解当前项目与页面用途，自主浏览React Bits、其GitHub仓库、hepengwei.cn及Aceternity UI。每轮生成至少20条高、中、低相关度候选和前五条截图，保存Markdown报告并等待用户选择；再提出具体到文字、位置、视觉和动效参数的方案，经确认实施，最后结合内置UI UX Pro Max与宿主impeccable复查。",
+        "developerName": "fms",
+        "category": "Productivity",
+        "capabilities": ["Interactive"],
+        "defaultPrompt": ["为当前项目搜集至少20条前端设计与动效灵感，保存Markdown报告并让我选择。", "根据选中的灵感生成逐元素实施方案，等待我确认后实施。", "用内置UI UX Pro Max和impeccable审计当前页面，区分规则建议、代码检查与浏览器实测。"],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

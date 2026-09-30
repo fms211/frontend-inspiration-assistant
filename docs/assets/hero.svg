@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Frontend Inspiration Assistant · 前端灵感与审美实施助手</title>
+  <desc id="desc">A Codex plugin that connects real design research, project relevance, implementation plans, and UI UX audits.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#050a14"/><stop offset="1" stop-color="#111c35"/></linearGradient>
+    <radialGradient id="blue"><stop stop-color="#5888d8" stop-opacity=".32"/><stop offset="1" stop-color="#5888d8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="amber"><stop stop-color="#e89840" stop-opacity=".2"/><stop offset="1" stop-color="#e89840" stop-opacity="0"/></radialGradient>
+    <linearGradient id="accent"><stop stop-color="#f5b76e"/><stop offset="1" stop-color="#e89840"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#899dce" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="1200" height="460" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="460" rx="24" fill="url(#grid)"/>
+  <ellipse cx="964" cy="194" rx="385" ry="260" fill="url(#blue)"/>
+  <ellipse cx="586" cy="450" rx="370" ry="200" fill="url(#amber)"/>
+  <rect x="1" y="1" width="1198" height="458" rx="23" fill="none" stroke="#96a9d0" stroke-opacity=".18"/>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="68" y="55" width="156" height="30" rx="15" fill="#182b43" stroke="#314662"/>
+    <circle cx="85" cy="70" r="4" fill="#e89840"/>
+    <text x="100" y="75" fill="#b9c9e2" font-size="12" font-weight="600" letter-spacing="1.6">CODEX PLUGIN</text>
+    <text x="68" y="180" fill="#f1f4fa" font-size="72" font-weight="700" letter-spacing="-2">Frontend</text>
+    <text x="68" y="258" fill="url(#accent)" font-size="72" font-weight="700" letter-spacing="-2">Inspiration</text>
+    <text x="70" y="310" fill="#d8dce8" font-family="Microsoft YaHei,PingFang SC,Noto Sans CJK SC,sans-serif" font-size="27" font-weight="500">前端灵感与审美实施助手</text>
+    <text x="70" y="346" fill="#93a5c4" font-size="17">Explore. Compare. Plan. Build. Audit.</text>
+    <path d="M70 371H625" stroke="#35445f"/>
+    <text x="70" y="406" fill="#f1f4fa" font-size="22" font-weight="650">20+</text>
+    <text x="123" y="405" fill="#96a8c4" font-size="12" letter-spacing="1">CANDIDATES</text>
+    <text x="272" y="406" fill="#f1f4fa" font-size="22" font-weight="650">4</text>
+    <text x="294" y="405" fill="#96a8c4" font-size="12" letter-spacing="1">SOURCES</text>
+    <text x="430" y="406" fill="#f1f4fa" font-size="22" font-weight="650">22</text>
+    <text x="469" y="405" fill="#96a8c4" font-size="12" letter-spacing="1">AUDIT STACKS</text>
+  </g>
+  <g transform="translate(731 93)" font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="9" y="17" width="375" height="279" rx="20" fill="#050a14" opacity=".4"/>
+    <rect width="375" height="279" rx="17" fill="#0a1228" stroke="#3b5075"/>
+    <path d="M0 43H375" stroke="#25364f"/>
+    <circle cx="21" cy="23" r="4" fill="#e89840"/><circle cx="37" cy="23" r="4" fill="#647592"/><circle cx="53" cy="23" r="4" fill="#647592"/>
+    <text x="231" y="27" fill="#91a5c4" font-size="11">PROJECT RELEVANCE</text>
+    <rect x="18" y="61" width="339" height="58" rx="10" fill="#1a2438" stroke="#71543b"/>
+    <rect x="29" y="73" width="35" height="34" rx="8" fill="#342c27"/>
+    <path d="M39 86l9 7 8-7M39 95h17" fill="none" stroke="#e89840" stroke-width="2"/>
+    <text x="78" y="84" fill="#e4eaf5" font-size="13" font-weight="600">Interaction &amp; feedback</text>
+    <text x="78" y="104" fill="#90a0bb" font-size="11">Fits the current workflow</text>
+    <rect x="307" y="77" width="34" height="21" rx="10" fill="#e89840"/><text x="317" y="92" fill="#101827" font-size="11" font-weight="700">H</text>
+    <rect x="18" y="131" width="339" height="55" rx="10" fill="#101d33" stroke="#2d405e"/>
+    <rect x="29" y="143" width="35" height="31" rx="7" fill="#1b3251"/>
+    <path d="M38 151h18M38 158h12M38 165h15" stroke="#75a2e2" stroke-width="2"/>
+    <text x="78" y="153" fill="#d8e1f0" font-size="13" font-weight="600">Layout &amp; hierarchy</text>
+    <text x="78" y="173" fill="#8296b5" font-size="11">Adapt to project tokens</text>
+    <rect x="307" y="147" width="34" height="21" rx="10" fill="#243c5f"/><text x="316" y="162" fill="#94b7eb" font-size="11" font-weight="700">M</text>
+    <rect x="18" y="198" width="339" height="55" rx="10" fill="#0e192b" stroke="#233550"/>
+    <circle cx="47" cy="225" r="12" fill="none" stroke="#776baa" stroke-width="2"/><path d="M36 229l23-8" stroke="#776baa"/>
+    <text x="78" y="220" fill="#b9c6db" font-size="13" font-weight="600">Ambient motion</text>
+    <text x="78" y="240" fill="#7a8dab" font-size="11">Use only where it helps</text>
+    <rect x="307" y="214" width="34" height="21" rx="10" fill="#24304a"/><text x="318" y="229" fill="#90a0bb" font-size="11" font-weight="700">L</text>
+    <rect x="200" y="259" width="184" height="36" rx="18" fill="#e89840"/>
+    <path d="M213 277l4 4 8-9" stroke="#112031" stroke-width="2" fill="none"/>
+    <text x="235" y="282" fill="#112031" font-size="12" font-weight="700">PLAN BEFORE BUILD</text>
+  </g>
+</svg>
